@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SLIDE TRANSITION</title>
+  </head>
+  <body>
+    <div class="imgBox">
+      <div class="wrapper">
+        <div class="text">
+          <h1>Cinque Terre</h1>
+          <h3>Resize the browser window</h3>
+          <button>sm</button>
+          <div>jsfjknh</div>
+          <span>bjfbkdf</span>
+        </div>
+      </div>
+      <div class="resizable">
+        <div class="resizers">
+          <div class="resizer bottom-right"></div>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </div>
+
+    <script>
+      function makeResizableDiv(div) {
+        const element = document.querySelector(div);
+        const resizers = document.querySelectorAll(div + ' .resizer');
+        for (let i = 0; i < resizers.length; i++) {
+          const currentResizer = resizers[i];
+          currentResizer.addEventListener('mousedown', function (e) {
+            e.preventDefault();
+            window.addEventListener('mousemove', resize);
+            window.addEventListener('mouseup', stopResize);
+          });
+
+          function resize(e) {
+            if (currentResizer.classList.contains('bottom-right')) {
+              element.style.width =
+                e.pageX - element.getBoundingClientRect().left + 'px';
+            
+            }
+          }
+
+          function stopResize() {
+            window.removeEventListener('mousemove', resize);
+          }
+        }
+      }
+
+      makeResizableDiv('.resizable');
+    </script>
+  </body>
+</html>

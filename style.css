@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: yellow;
+}
+
+.imgBox {
+  position: relative;
+  width: 500px;
+  height: 600px;
+  background-color: #f1f1f1;
+  padding: 15px;
+}
+
+.wrapper {
+  z-index: 15;
+  position: absolute;
+  background-color: rgba(182, 179, 179, 0.274);
+}
+
+.text {
+  color: grey;
+  border: 2px solid grey;
+}
+.text h3 {
+  color: rgb(179, 179, 179);
+}
+.text button {
+  background-color: turquoise;
+}
+.text div {
+  background-color: tomato;
+}
+.text span {
+  background-color: rgb(9, 22, 206);
+}
+
+.overlay {
+  z-index: 1;
+  background: white;
+}
+
+.resizable {
+  background: black;
+  width: 1px;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+.resizable .resizers {
+  width: 100%;
+  height: 100%;
+  border-right: 0.5px solid #4286f4;
+  box-sizing: border-box;
+}
+
+.resizable .resizers .resizer {
+  width: 24px;
+  height: 60px;
+  border-radius: 12px; /*magic to turn square into circle*/
+  background: transparent;
+
+  position: absolute;
+  background: rgb(92, 92, 92);
+  clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%);
+}
+
+.resizable .resizers .resizer.bottom-right {
+  right: -12px;
+  bottom: 50%;
+  cursor: e-resize;
+}
